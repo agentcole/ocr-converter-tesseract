@@ -2,7 +2,6 @@
   "name": "ocr-converter",
   "version": "1.0.0",
   "description": "Beautiful OCR converter powered by Tesseract",
-  "type": "module",
   "main": "./out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
