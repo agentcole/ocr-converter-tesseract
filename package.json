@@ -2,6 +2,7 @@
   "name": "ocr-converter",
   "version": "1.0.0",
   "description": "Beautiful OCR converter powered by Tesseract",
+  "type": "module",
   "main": "./out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
@@ -10,28 +11,28 @@
     "dist": "npm run build && electron-builder"
   },
   "dependencies": {
-    "@electron-toolkit/preload": "^3.0.1",
-    "@electron-toolkit/utils": "^3.0.0",
-    "docx": "^8.5.0",
+    "@electron-toolkit/preload": "^3.0.2",
+    "@electron-toolkit/utils": "^4.0.0",
+    "docx": "^9.6.1",
     "electron-store": "^8.2.0",
-    "framer-motion": "^11.3.0",
+    "framer-motion": "^12.0.0",
     "pdfjs-dist": "^4.4.168",
-    "react-dropzone": "^14.2.0",
-    "zustand": "^5.0.0",
+    "react-dropzone": "^15.0.0",
+    "zustand": "^5.0.12",
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.19",
-    "electron": "^31.6.0",
-    "electron-builder": "^24.13.3",
-    "electron-vite": "^2.3.0",
-    "postcss": "^8.4.38",
+    "@vitejs/plugin-react": "^5.2.0",
+    "autoprefixer": "^10.4.27",
+    "electron": "^41.1.1",
+    "electron-builder": "^26.8.1",
+    "electron-vite": "^5.0.0",
+    "postcss": "^8.5.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.4",
-    "vite": "^5.3.1"
+    "vite": "^6.4.1"
   },
   "build": {
     "appId": "com.ocr-converter.app",
