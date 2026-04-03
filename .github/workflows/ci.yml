@@ -24,7 +24,10 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # --omit=optional skips platform-specific optional deps (e.g.
+        # electron-builder-squirrel-windows) that are absent from the
+        # lock file when it was generated on a different OS.
+        run: npm ci --omit=optional
 
       - name: Build
         run: npm run build
