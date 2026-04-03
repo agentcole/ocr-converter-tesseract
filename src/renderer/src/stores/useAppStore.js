@@ -15,6 +15,9 @@ const useAppStore = create((set, get) => ({
   installLog: [],
   installStatus: 'idle', // 'idle' | 'running' | 'success' | 'error'
 
+  // Navigation
+  currentView: 'converter', // 'converter' | 'settings'
+
   // Converter
   queuedFiles: [],
   conversionResults: [],
@@ -22,7 +25,17 @@ const useAppStore = create((set, get) => ({
   outputDir: '',
 
   // Actions
+  setCurrentView: (view) => set({ currentView: view }),
   setOnboardingComplete: (v) => set({ onboardingComplete: v }),
+
+  resetOnboarding: () => set({
+    onboardingComplete: false,
+    currentStep: 0,
+    systemInfo: null,
+    installLog: [],
+    installStatus: 'idle',
+    currentView: 'converter',
+  }),
   setCurrentStep: (step) => set({ currentStep: step }),
   nextStep: () => set(s => ({ currentStep: s.currentStep + 1 })),
   prevStep: () => set(s => ({ currentStep: Math.max(0, s.currentStep - 1) })),
