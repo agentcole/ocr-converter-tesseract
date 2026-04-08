@@ -4,10 +4,6 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -20,13 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 22
           cache: npm
 
-      - name: Install Linux system dependencies
+      # Linux deps for Electron
+      - name: Install Linux dependencies
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
@@ -34,15 +30,15 @@ jobs:
             libgtk-3-0 \
             libgbm1 \
             libnss3 \
-            libasound2t64 \
+            libasound2 \
             libxss1 \
             libxtst6
 
       - name: Install dependencies
-        # --omit=optional skips platform-specific optional deps (e.g.
-        # electron-builder-squirrel-windows) absent from the lock file
-        # when it was generated on a different OS.
-        run: npm ci --omit=optional
+        run: npm ci
 
-      - name: Build
+      - name: Build app
         run: npm run build
+
+      - name: Package app
+        run: npm run dist
